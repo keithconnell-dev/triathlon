@@ -1,0 +1,288 @@
+/*New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 2
+   Tutorial Case
+   TSS Typographic Style Sheet
+   Author: keith connell
+   Date:   3/15/24 10AM
+   Filename: tss_styles.css */
+/*universal relation locater?*/
+@font-face  {
+   font-family: "Quicksand"; 
+   src: url("Quicksand-Regular.woff") 
+   format("woff"), url("Quicksand-Regular.ttf")
+   format("truetype");  }
+/*web open font format...font data is in woff file
+ttf= tru type fonnt*/ 
+
+
+/* HTML and Body Styles */
+/*starts a selector(html)...this becomes a rule*/
+html {   
+   background-color: hsl(27, 72%, 72%  );  
+}
+/*parenthesis above inside hsl create values or 
+"batteries" hue,sat,light that power the function */
+
+/**/
+/*now create a rule for body elements rgb0-255
+...body is the only selector****/
+ body {
+    color: rgb(91, 91, 91); 
+    /*next line is the 2nd property*/
+    background-color: ivory; 
+    font-family: "Verdana", "Geneva", sans-serif; }
+/*verdana primary font, geneva is considered
+fallback font....s-s is kind of like what is defaulted
+on your computer as a fonts*/
+
+/* Heading Styles page 102-103 in book*/
+
+h1 {
+   font-size: 2.2em; }
+
+h2 {
+   font-size: 1.6em; }
+
+/*targets all headings 1 and 2......
+quicksand is a faily name(file source)..
+..san serif is a category, not a font name */
+h1, h2 {
+   font-family: "Quicksand", "Verdana", sans-serif; 
+   letter-spacing: 0.1em;     }
+
+/*somewhere in article with the id of about_tss */ 
+/*any h1 in any article with id about_tss*/
+   article#about_tss h1 {
+   color: white;
+   background-color: rgb(222, 128, 60);      }
+
+/*previous- create rule for h2 elements*/
+/*now do same thing as above with the h2 elements*/
+   article#about_tss h2 {
+   color: white;
+   background-color: rgb(235, 177, 131);  }
+   
+/*no id here, just a class article.class, any 
+h1...then  write multiple selectors in which the
+ same rule is applide...targeting h1 and h2 that live
+ in those articles*/
+article.syllabus h1, article.syllabus h2 {
+    color: rgb(101, 101, 101);  
+    background-color: rgb(255, 185, 255); }         
+
+/* Aside and Blockquote Styles */
+aside {
+   font-size: 0.8em; }
+
+aside blockquote { 
+   color: rgb(232, 165, 116);    
+   margin: 20px 5px 20px 5px;
+}
+
+/* Navigation Styles */	 /*area on the left size 
+of the webpage where the links are*/
+nav {
+   font-size: 0.8em; }
+
+/*> means direct child of nav element */
+nav > ul  {
+   line-height: 2em; /*incr. distanc. betw lines*/ 
+   list-style-type: none; /*bullets should
+disappear at home page on left side (Links list)*/
+   padding-left: 5px;
+   border: 1px solid red;  }
+
+/*trying to target the specific direct list items? 
+potentially could add another nav, but this 
+would be complicated. too many navs would be too 
+distracting. Target a list name with something 
+specific....newgroup is a class name in html code.
+What they wrote on page 143 works, but makes 
+everything distrating*/
+li.newgroup {
+   margin-top: 20px;  }
+/*this rule above targets the class of newgroup*/
+
+
+/*target the nav sectioning element, use arrow to 
+point to the ul, target direct list element, target
+hyperlink tag, target the link pseu-c. assioacte
+another selector with tha same rule with a (,)
+...thus there are 2 selectors here targeting
+2 diff. pser-c's:visisted and links..any time all 
+3 numbers are the same, you have some shade of gray
+. THIS NOW chnages the look of the nav links*/
+nav > ul > li > a:link, nav > ul > li > a:visited {
+   color: rgb(151, 151, 151); /*gray*/
+   text-decoration: none;   } 
+/*now copy code abover, paste below, and adjust ie
+change pseu-c from link to hover and visited to active
+(activer refers to the action of clicking(process of))
+*/
+nav > ul > li > a:hover, nav > ul > li > a:active {
+   color: rgb(255, 64, 255);/*purple-pink*/
+   text-decoration: underline;   } 
+
+
+/* List Styles */
+/*working with an id(about_tss), not a class
+like the 3 rules lower*//*(li:psuedo-class(f-o-type) 
+)this targets child(li) element u want to work with...
+Now, this has made a more specific rule and target the
+first of its ul type. now running icon is 
+only on the first of type (Running:)..The other 2 
+*cycling, swimmming) go back to just the bullets
+*/
+article#about_tss ul li:first-of-type {
+   list-style-image: url("runicon.png"); }/*we need
+to load file image data...3 small icons should appear 
+under class label on home page of Website...THEN, 
+w modified he code so that the icon just appeared
+once...OK, now we have to target the next
+psuedo-class...copy and paste the code above and paste
+below to target the second element and just
+load a different pic*/
+article#about_tss ul li:nth-of-type(2) {
+   list-style-image: url("bikeicon.png"); }
+article#about_tss ul li:last-of-type {
+   list-style-image: url("swimicon.png"); }
+
+
+/*target an article element that has a class name
+of syllabus, an ol element as a descendent of 
+that article element. artilce.syllabus is the 
+parent */
+article.syllabus ol {
+list-style-type: upper-roman; }
+article.syllabus ol ol {
+list-style-type: upper-alpha; }
+article.syllabus ol ol ol {
+list-style-type: decimal;  }
+
+
+
+/* Footer Styles
+this is the company address at the bottom 
+of the web page */
+ /*footer (child) in the body element (parent), 
+ then target the footer's address, second line
+ means use the rgb function tomput the color together
+red222, green128, 60 blue= makes a dark organge,  
+ *3rd line color refers to text color
+ *4th line color means to a more advanced color
+ (a 4th value of color = opacity(trancparency)
+ idea/function...1.0 means solid
+ PROGRESSIVE ENHANCEMENT
+ 255, 255, 255 makes white*/
+ body > footer address {
+   background-color: rgb(222, 128 , 60);
+   color: white;
+   color: rgb(255, 255, 255, 0.7);  
+   text-align: center;
+/*now the all-in-one font property
+first normal refers to the font style which is 
+taking it away from italic because it is 
+an adress(typically itialic)
+*small-caps bold is the font variant
+*0.9em refers to the font size
+*3em refers to the line height 
+*primary font family is quicksand, backup 
+is verdana, keep this "font stack going" for backups
+or just put a category of fonts in (sans-serif) */
+  /* font: normal small-caps bold 0.9em/3em 
+   "Quicksand", Verdana, sans-serif;  */ 
+/*what is the aternative to this
+all-in-one above? This option below...*/
+         
+   font-style: normal;
+   font-variant: small-caps;
+   font-weight: bold;
+   font-size: 0.9em;
+   line-height: 3em;
+   font-family: "quicksand", "Verdana", sans-serif;}  
+   /* font: normal small-caps bold 0.9em/3em 
+      "Quicksand", Verdana, sans-serif;  */        
+              
+
+/*Notice for the Quicksand-Regular Font
+------------------------------------------------------------------------------
+SIL Open Font License v1.10
+
+This license can also be found at this permalink: http://www.fontsquirrel.com/license/quicksand
+
+Copyright (c) 2011, Andrew Paglinawan (http://www.andrewpaglinawan.com andrew.paglinawan@gmail.com), 
+with Reserved Font Name “Quicksand”.
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at: http://scripts.sil.org/OFL
+
+—————————————————————————————-
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+—————————————————————————————-
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative 
+font projects, to support the font creation efforts of academic and linguistic communities, and 
+to provide a free and open framework in which fonts may be shared and improved in 
+partnership with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as 
+long as they are not sold by themselves. The fonts, including any derivative works, can 
+be bundled, embedded, redistributed and/or sold with any software provided that any reserved 
+names are not used by derivative works. The fonts and derivatives, however, cannot be released under 
+any other type of license. The requirement for fonts to remain under this license does not apply 
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+“Font Software” refers to the set of files released by the Copyright Holder(s) under this 
+license and clearly marked as such. This may include source files, build scripts and documentation.
+
+“Reserved Font Name” refers to any names specified as such after the copyright statement(s).
+
+“Original Version” refers to the collection of Font Software components as distributed by 
+the Copyright Holder(s).
+
+“Modified Version” refers to any derivative made by adding to, deleting, or substituting—in 
+part or in whole—any of the components of the Original Version, by changing formats or by 
+porting the Font Software to a new environment.
+
+“Author” refers to any designer, engineer, programmer, technical writer or other person 
+who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, 
+to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of 
+the Font Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components, in Original or Modified 
+Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled, redistributed and/or 
+sold with any software, provided that each copy contains the above copyright notice and this 
+license. These can be included either as stand-alone text files, human-readable headers or in 
+the appropriate machine-readable metadata fields within text or binary files as long as those 
+fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit 
+written permission is granted by the corresponding Copyright Holder. This restriction only applies 
+to the primary font name as presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font Software shall not be used 
+to promote, endorse or advertise any Modified Version, except to acknowledge the contribution(s) 
+of the Copyright Holder(s) and the Author(s) or with their explicit written permission.
+
+5) The Font Software, modified or unmodified, in part or in whole, must be distributed entirely 
+under this license, and must not be distributed under any other license. The requirement for fonts 
+to remain under this license does not apply to any document created using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE 
+AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT 
+HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, 
+INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
+*/
